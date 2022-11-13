@@ -36,7 +36,7 @@ def main():
     #Create an empty dataframe to save all the scraped information
     df = pd.DataFrame(columns=['Link', 'Place list', 'Place type','Name', 'Capacity','Fee', 'Altitude', 'Telephone', 'PR route', 'GR route'])
     
-    for link in all_links[:10]: 
+    for link in all_links[:20]: 
         page = requests.get(link, headers=headers)  # Change Referer header to the previous link (?)
         soup = BeautifulSoup(page.text, 'html.parser')
     

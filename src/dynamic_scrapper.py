@@ -18,8 +18,8 @@ def route_scrapper(url):
     driver = webdriver.Chrome(PATH)
     driver_main = driver.get(url)    
     
-    # Get map images of each one of the shelters
-    get_images(driver, url)
+    # Get map images of each one of the shelters (uncomment to activate)
+    #get_images(driver, url)
     
     #Get nearby routes
     try:
@@ -28,18 +28,12 @@ def route_scrapper(url):
         routes_names = []
         
         for route in routes:
-            routes_names.append(route.text)    
-        
-        # Gets the distance of the first route, (Functional but discared due to long loading times)
-        #routes[0].click()
-        #distance = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div[3]/div/div[2]/div[1]/div[1]/div[1]/span').text
-        #driver_main = driver.get(url)
+            routes_names.append(route.text)            
         
     except IndexError:
         routes_names = '?'
     
     driver.quit()
-
     return routes_names
 
 
