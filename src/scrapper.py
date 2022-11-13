@@ -3,7 +3,6 @@
 Created on Sun Nov 13 00:08:11 2022
 @author: Sara Jose,  Joan Peracaula
 Description: Web scrapper that saves data from shelters to a csv
-
 """
 
 import pandas as pd
@@ -35,7 +34,7 @@ def main():
     random.shuffle(all_links)
     
     #Create an empty dataframe to save all the scraped information
-    df = pd.DataFrame(columns=['Link', 'Place list', 'Place type','Name', 'Capacity','Fee', 'Telephone', 'PR route', 'GR route'])
+    df = pd.DataFrame(columns=['Link', 'Place list', 'Place type','Name', 'Capacity','Fee', 'Altitude', 'Telephone', 'PR route', 'GR route'])
     
     for link in all_links[:10]: 
         page = requests.get(link, headers=headers)  # Change Referer header to the previous link (?)
@@ -76,9 +75,11 @@ def main():
         print(telephone)
         print()
     
-        PR , GR = dynamic_scrapper.route_scrapper(link)    
+        routes = '?'
+        routes = dynamic_scrapper.route_scrapper(link)    
         df = df.append({'Link': link, 'Place list': places_list, 'Place type': place_type, 'Name': name, 
-                        'Capacity': capacity, 'Fee': fee, 'Telephone': telephone , 'PR route': PR , 'GR route': GR}, ignore_index=True)
+                        'Capacity': capacity, 'Fee': fee, 'Altitude': altitude, 'Telephone': telephone , 
+                        'Routes': routes}, ignore_index=True)
                     
     df.to_csv("refugisdemuntanya.csv")
 
