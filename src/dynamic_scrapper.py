@@ -16,7 +16,7 @@ def route_scrapper(url):
     #Choose chrome driver from selenium   
     PATH = "C:\Program Files (x86)\chromedriver.exe"
     driver = webdriver.Chrome(PATH)
-    #driver_main = driver.get(url)    
+    driver_main = driver.get(url)    
     
     # Get map images of each one of the shelters
     get_images(driver, url)
@@ -39,7 +39,6 @@ def route_scrapper(url):
         routes_names = '?'
     
     driver.quit()
-    print(routes_names)
 
     return routes_names
 
