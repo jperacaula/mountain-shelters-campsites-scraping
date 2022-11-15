@@ -1,11 +1,11 @@
 ,Place type,Name,Place list,Capacity,Fee,Altitude,Telephone,Website,Email,Hiking association,Guard name(s),Description
-0,Shelter,Refugio NAPAZAL CASETAS,"['Shelter in Spain', 'Shelter in Aragon', 'Shelter in Huesca']",? beds,Free to use,1930m,?,?,?,?,?,Cabins of work
-1,Shelter,Refugio GERDAR EL,"['Shelter in Spain', 'Shelter in Catalonia', 'Shelter in Lleida']",4 beds,Paid,153m,?,?,?,?,?,?
-2,Shelter,Refugio del Paso de las Alforjas,"['Shelter in Spain', 'Shelter in Navarre', 'Shelter in Navarre']",8 beds,Free to use,1422m,?,?,?,?,?,"Refuge with two rooms, one has a fireplace and there is firewood in the vicinity. There is also no water nearby. We arrived after crossing the Irati Forest in case you were doing the old route of the GR11. In the new layout you also go through the forest but in another area, and you also pass through this refuge. It has no furniture and one of the doors is broken. "
-3,Shelter,Refugio CORTALS,"['Shelter in Spain', 'Shelter in Catalonia', 'Shelter in Lleida']",22 beds,Paid,1610m,tel:+34 933720283,?,?,?,?,?
-4,Shelter,Refugio ENMEDIO,"['Shelter in Spain', 'Shelter in Castile and león', 'Shelter in Ávila']",8 beds,Free to use,1600m,?,?,?,?,?,Cabin with porch
-5,Shelter,VIVAC MERENDERO ICONA,"['Shelter in Spain', 'Shelter in Andalusia', 'Shelter in Cádiz']",8 beds,Free to use,1111m,?,?,?,?,?,For protection from rain
-6,Shelter,Refugio FORCAU EL,"['Shelter in Spain', 'Shelter in Aragon', 'Shelter in Huesca']",100 beds,Paid,2116m,tel:+34 974344044,?,?,?,?,?
-7,Shelter,Refugio de la Porteille de Rotja,"['Shelter in France', 'Shelter in Occitanie', 'Shelter in Pyrénées-Orientales']",10 beds,Free to use,2385m,?,?,?,?,?,Description: Metal beds. The problem is the lack of water nearby (humidity inside in)
-8,Shelter,Refugio MESAS LAS,"['Shelter in Spain', 'Shelter in Castile-la mancha', 'Shelter in Albacete']",3 beds,Paid,1343m,?,?,?,?,?,?
-9,Shelter,Refugi d’Amitges,"['Shelter in Spain', 'Shelter in Catalonia', 'Shelter in Lleida']",74 beds,Paid,2380m,tel:+34 973 250 109,https://www.amitges.com,mailto:info@amitges.com,CEC,?,"Refuge of high mountain (2,380 m) of the CEC located in the National Park of Aigüestortes and Estany de Sant Maurici."
+0,Shelter,Refugi el Bagatell,"['Shelter in Spain', 'Shelter in Catalonia', 'Shelter in Girona']",11 beds,Paid,?,tel:+34 636808885,https://elbagatell.wordpress.com,mailto:tresamat@hotmail.com,?,Tresa Amat,"We offer you a shelter in la Vall del Bac, in the Alta Garrotxa: El Bagatell, is a small inhabited house with magnificent views, excursions, rest, observation of the sky, meetings of friends and relatives..."
+1,Shelter,Refugio CORRAL,"['Shelter in Spain', 'Shelter in Castile and león', 'Shelter in Palencia']",6 beds,Free to use,1301m,?,?,?,?,?,Two-story cottage with fireplace
+2,Shelter,Refugio de les Pedrisses,"['Shelter in Spain', 'Shelter in Catalonia', 'Shelter in Girona']",6 beds,Free to use,2140m,?,?,?,Servicios Territoriales del Medio Natural de Girona,?,"The refuge of les Pedrisses is a forest refuge within the municipality of Queralbs (Ripollès) at 2,140 m high and located below the peak of Torreneules, about 50 m above the"" Enginyers road "" that goes from the Sanctuary of Núria to Coma de Vaca.  "
+3,Shelter,Refugio PIEMEDIANO,"['Shelter in Spain', 'Shelter in Castile and león', 'Shelter in Segovia']",4 beds,Free to use,1773m,?,?,?,?,?,Stone hut
+4,Shelter,Refugio-cabaña LINZA,"['Shelter in Spain', 'Shelter in Aragon', 'Shelter in Huesca']",8 beds,Free to use,1600m,?,?,?,?,?,?
+5,Shelter,Refugio TENEROSA,"['Shelter in Spain', 'Shelter in Asturias', 'Shelter in Asturias']",20 beds,Paid,1310m,tel:+34 686490883,?,?,?,?,?
+6,Shelter,Corrales de Urre,"['Shelter in Spain', 'Shelter in La rioja', 'Shelter in La Rioja']",8 beds,Free to use,945m,?,?,?,?,?,"It is located on the right orographic bank of the Cárdenas River Valley, some 8kms above San Millán de la Cogolla.  "
+7,Shelter,Refugio PARDINAS,"['Shelter in Spain', 'Shelter in Aragon', 'Shelter in Huesca']",6 beds,Free to use,2100m,?,?,?,?,?,?
+8,Shelter,Refugio CASETON DE ANDARA,"['Shelter in Spain', 'Shelter in Cantabria', 'Shelter in Cantabria']",? beds,Paid,1739m,tel:+34 671404277,?,?,?,?,?
+9,Shelter,Refugio ACERAL DEL,"['Shelter in Spain', 'Shelter in Andalusia', 'Shelter in Granada']",6 beds,Paid,1810m,?,?,?,?,?,?
