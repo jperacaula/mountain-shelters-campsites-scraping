@@ -90,43 +90,8 @@ for link in all_links[:10]:
     # TODO: Extract Services information
 
     # TODO: Extract Location/How to get there information
+    
     # TODO: Extract Location/How to get there information
-    div_access = soup.find(class_='how-to-get-there')
-    if div_access:
-        div_access.find(class_='row').decompose()
-        
-        
-        #Get latitude and longitude
-        if div_access.find(class_='row'):
-            div_access.find(class_='col-12').decompose()
-            lat_long = div_access.find(class_='row coordinates').find_next('span').contents[0]
-            div_access.find(class_='row coordinates').decompose()
-            print(lat_long)
-        
-        if div_access.find(class_='row'):
-            div_access.find(class_='col-12').decompose()
-            rows = div_access.find_all(class_='row')
-            access = []
-            zones = []
-            emplacement = []
-            
-            for row in rows:
-                text = row.text.replace("\n", "")
-                
-                if text.startswith('Zone'):
-                    zones.append(text)
-        
-                elif text.startswith('Emplacement'):
-                    emplacement.append(text)
-                    
-                else:
-                    access.append(text) 
-                
-            #find_next('span').contents[0]
-            #div_access.find(class_='row coordinates').find_parent().decompose()
-            print(access)
-            print(zones)
-            print(emplacement)
 
     # TODO: Extract Nearby hiking routes names
     
