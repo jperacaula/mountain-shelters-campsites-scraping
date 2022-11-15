@@ -87,17 +87,55 @@ for link in all_links[:10]:
             elif label == 'Guard name(s):':
                 guard_names = label.next.strip()
 
+    # TODO: Extract Services information
+
+    # TODO: Extract Location/How to get there information
+    # TODO: Extract Location/How to get there information
+    div_access = soup.find(class_='how-to-get-there')
+    if div_access:
+        div_access.find(class_='row').decompose()
+        
+        
+        #Get latitude and longitude
+        if div_access.find(class_='row'):
+            div_access.find(class_='col-12').decompose()
+            lat_long = div_access.find(class_='row coordinates').find_next('span').contents[0]
+            div_access.find(class_='row coordinates').decompose()
+            print(lat_long)
+        
+        if div_access.find(class_='row'):
+            div_access.find(class_='col-12').decompose()
+            rows = div_access.find_all(class_='row')
+            access = []
+            zones = []
+            emplacement = []
+            
+            for row in rows:
+                text = row.text.replace("\n", "")
+                
+                if text.startswith('Zone'):
+                    zones.append(text)
+        
+                elif text.startswith('Emplacement'):
+                    emplacement.append(text)
+                    
+                else:
+                    access.append(text) 
+                
+            #find_next('span').contents[0]
+            #div_access.find(class_='row coordinates').find_parent().decompose()
+            print(access)
+            print(zones)
+            print(emplacement)
+
+    # TODO: Extract Nearby hiking routes names
+    
+    
     shelters_list.append({'Place type': place_type, 'Name': name, 'Place list': places_list,
                     'Capacity': capacity, 'Fee': fee, 'Altitude': altitude, 'Telephone': telephone, 
                     'Website': website, 'Email': email, 'Hiking association': hiking_association,
                     'Guard name(s)': guard_names,
                     'Description': description})
-
-    # TODO: Extract Services information
-
-    # TODO: Extract Location/How to get there information
-
-    # TODO: Extract Nearby hiking routes names
 
 # Create pandas dataframe with the whole scrapped data and save it as CSV in the datasets directory 
 df = pd.DataFrame.from_dict(shelters_list)
