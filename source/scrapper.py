@@ -28,7 +28,7 @@ random.shuffle(all_links)
 shelters_list = []
 for link in all_links[:10]: 
     # Debug print
-    print(link)
+    #print(link)
     print()
 
     page = requests.get(link, headers=headers)  # Change Referer header to the previous link (?)
@@ -88,8 +88,20 @@ for link in all_links[:10]:
                 guard_names = label.next.strip()
 
     # TODO: Extract Services information
+    routes = soup.find("div", class_='nearby-routes')
+    nearby_routes = []
 
-    # TODO: Extract Location/How to get there information
+    if routes:
+        #routes = routes.find("ul")          
+        #routes_text = list(routes.descendants)
+        routes_list = []
+        for a in routes.find_all('a', href=True):
+            routes_list.append(a.text)
+             
+        print(routes_list)
+       
+    
+
     # TODO: Extract Location/How to get there information
     div_access = soup.find(class_='how-to-get-there')
     if div_access:
@@ -101,7 +113,7 @@ for link in all_links[:10]:
             div_access.find(class_='col-12').decompose()
             lat_long = div_access.find(class_='row coordinates').find_next('span').contents[0]
             div_access.find(class_='row coordinates').decompose()
-            print(lat_long)
+            #print(lat_long)
         
         if div_access.find(class_='row'):
             div_access.find(class_='col-12').decompose()
@@ -124,11 +136,12 @@ for link in all_links[:10]:
                 
             #find_next('span').contents[0]
             #div_access.find(class_='row coordinates').find_parent().decompose()
-            print(access)
-            print(zones)
-            print(emplacement)
+            #print(access)
+            #print(zones)
+            #print(emplacement)
 
     # TODO: Extract Nearby hiking routes names
+    
     
     
     shelters_list.append({'Place type': place_type, 'Name': name, 'Place list': places_list,
@@ -139,4 +152,4 @@ for link in all_links[:10]:
 
 # Create pandas dataframe with the whole scrapped data and save it as CSV in the datasets directory 
 df = pd.DataFrame.from_dict(shelters_list)
-df.to_csv("../dataset/shelters.csv")
+#df.to_csv("../dataset/shelters.csv")
