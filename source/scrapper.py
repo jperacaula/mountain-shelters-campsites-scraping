@@ -1,3 +1,6 @@
+import os
+import sys
+from pathlib import Path
 import requests
 import random
 from bs4 import BeautifulSoup
@@ -13,22 +16,21 @@ headers = {
     "Referer": "https://www.walkaholic.me"
 }
 
-# Shelters links list
-page = requests.get('https://www.walkaholic.me/shelter', headers=headers)
-soup = BeautifulSoup(page.text, 'html.parser')
+# Scrap shelters and campsites landings to obtain a full list of links
+all_links = []
+for landing in ['shelter', 'campsite']:
+    page = requests.get('https://www.walkaholic.me/'+landing, headers=headers)
+    soup = BeautifulSoup(page.text, 'html.parser')
 
-list_page = soup.find(class_='list-page')
-
-all_list_items = list_page.find_all('a')
-all_links = ["https://www.walkaholic.me" + item.get('href') for item in all_list_items]
+    list_links = soup.find(class_='list-page').find_all('a')
+    all_links += ["https://www.walkaholic.me" + a.get('href') for a in list_links]
 
 # Shuffle links to access randomly (more human-like, less prone to be detected by the system)
 random.shuffle(all_links)
     
-shelters_list = []
+accommodations_list = []
 for link in all_links[:10]: 
-
-    page = requests.get(link, headers=headers)  # Change Referer header to the previous link (?)
+    page = requests.get(link, headers=headers)
     soup = BeautifulSoup(page.text, 'html.parser')
 
     # Extract country and subregions
@@ -125,15 +127,23 @@ for link in all_links[:10]:
         for a in routes.find_all('a', href=True):
             routes_list.append(a.text.strip())
                    
-    # Append new scrapped shelter to the list
-    shelters_list.append({'Place type': place_type, 'Name': name, 'Place list': places_list,
-                    'Capacity': capacity, 'Fee': fee, 'Altitude': altitude, 'Description': description, 
-                    'Telephone': telephone, 'Website': website, 'Email': email, 
-                    'Hiking association': hiking_association, 'Guard name(s)': guard_names, 
-                    'Services': services_list, 'Coordinates': lat_long, 'Acces': access, 'Zones': zones,
-                    'Emplacement': emplacement, 'Nearby routes': routes_list})
+    # Append new scrapped accomodation to the list
+    accommodations_list.append({
+            'Place type': place_type, 'Name': name, 'Place list': places_list,
+            'Capacity': capacity, 'Fee': fee, 'Altitude': altitude, 'Description': description, 
+            'Telephone': telephone, 'Website': website, 'Email': email, 
+            'Hiking association': hiking_association, 'Guard name(s)': guard_names, 
+            'Services': services_list, 'Coordinates': lat_long, 'Acces': access, 'Zones': zones,
+            'Emplacement': emplacement, 'Nearby routes': routes_list
+        })
 
+print("Scrapping complete!")
+
+script_path = os.path.dirname(os.path.abspath(sys.argv[0]))
+root_path = os.path.dirname(script_path)
+dataset_path = os.path.join(root_path, "dataset/shelters_and_campsites.csv")
+print("Saving dataset to: " + dataset_path) 
 
 # Create pandas dataframe with the whole scrapped data and save it as CSV in the datasets directory 
-df = pd.DataFrame.from_dict(shelters_list)
-df.to_csv("../dataset/shelters.csv")
+df = pd.DataFrame.from_dict(accommodations_list)
+df.to_csv(dataset_path)
