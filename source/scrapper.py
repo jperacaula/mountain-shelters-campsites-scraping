@@ -88,18 +88,7 @@ for link in all_links[:10]:
                 guard_names = label.next.strip()
 
     # TODO: Extract Services information
-    routes = soup.find("div", class_='nearby-routes')
-    nearby_routes = []
 
-    if routes:
-        #routes = routes.find("ul")          
-        #routes_text = list(routes.descendants)
-        routes_list = []
-        for a in routes.find_all('a', href=True):
-            routes_list.append(a.text)
-             
-        print(routes_list)
-       
     
 
     # TODO: Extract Location/How to get there information
@@ -141,9 +130,18 @@ for link in all_links[:10]:
             #print(emplacement)
 
     # TODO: Extract Nearby hiking routes names
-    
-    
-    
+    routes = soup.find("div", class_='nearby-routes')
+    nearby_routes = []
+
+    if routes:
+        #routes = routes.find("ul")          
+        #routes_text = list(routes.descendants)
+        routes_list = []
+        for a in routes.find_all('a', href=True):
+            routes_list.append(a.text)
+             
+        print(routes_list)
+                   
     shelters_list.append({'Place type': place_type, 'Name': name, 'Place list': places_list,
                     'Capacity': capacity, 'Fee': fee, 'Altitude': altitude, 'Telephone': telephone, 
                     'Website': website, 'Email': email, 'Hiking association': hiking_association,
