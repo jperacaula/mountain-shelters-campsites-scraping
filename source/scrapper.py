@@ -1,6 +1,5 @@
 import os
 import sys
-from pathlib import Path
 import requests
 import random
 from bs4 import BeautifulSoup
