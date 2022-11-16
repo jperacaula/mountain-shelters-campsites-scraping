@@ -27,9 +27,6 @@ random.shuffle(all_links)
     
 shelters_list = []
 for link in all_links[:10]: 
-    # Debug print
-    print(link)
-    print()
 
     page = requests.get(link, headers=headers)  # Change Referer header to the previous link (?)
     soup = BeautifulSoup(page.text, 'html.parser')
@@ -87,20 +84,55 @@ for link in all_links[:10]:
             elif label == 'Guard name(s):':
                 guard_names = label.next.strip()
 
-    # TODO: Extract Services information
+    # Extract list of services, if available
+    services_list = []
+    if soup.find(class_='service'):
+        services = soup.find_all(class_='service')
+        for service in services:
+            services_list.append(service['title'])    
+             
+    # Extract Location/'How to get there' information
+    lat_long = '?'
+    access, zones, emplacement = [], [], []
+    div_access = soup.find(class_='how-to-get-there')
+    if div_access:
+        div_access.find(class_='row').decompose()  # Decompose title row
+        
+        # Get latitude and longitude
+        if div_access.find(class_='row'):
+            div_access.find(class_='col-12').decompose()
+            lat_long = div_access.find(class_='row coordinates').find_next('span').contents[0]
+            div_access.find(class_='row coordinates').decompose()
+        
+        # Get acces, zones and emplacement
+        if div_access.find(class_='row'):
+            for row in div_access.find_all(class_='row'):
+                text = row.text.replace("\n", "")
+                
+                if text.startswith('Zone'):
+                    zones.append(text)
+        
+                elif text.startswith('Emplacement'):
+                    emplacement.append(text)
+                    
+                elif text.startswith('Access'):
+                    access.append(text) 
 
-    # TODO: Extract Location/How to get there information
-    
-    # TODO: Extract Location/How to get there information
-
-    # TODO: Extract Nearby hiking routes names
-    
-    
+    # Extract Nearby hiking routes names
+    routes_list = []
+    routes = soup.find("div", class_='nearby-routes')
+    if routes:
+        for a in routes.find_all('a', href=True):
+            routes_list.append(a.text.strip())
+                   
+    # Append new scrapped shelter to the list
     shelters_list.append({'Place type': place_type, 'Name': name, 'Place list': places_list,
-                    'Capacity': capacity, 'Fee': fee, 'Altitude': altitude, 'Telephone': telephone, 
-                    'Website': website, 'Email': email, 'Hiking association': hiking_association,
-                    'Guard name(s)': guard_names,
-                    'Description': description})
+                    'Capacity': capacity, 'Fee': fee, 'Altitude': altitude, 'Description': description, 
+                    'Telephone': telephone, 'Website': website, 'Email': email, 
+                    'Hiking association': hiking_association, 'Guard name(s)': guard_names, 
+                    'Services': services_list, 'Coordinates': lat_long, 'Acces': access, 'Zones': zones,
+                    'Emplacement': emplacement, 'Nearby routes': routes_list})
+
 
 # Create pandas dataframe with the whole scrapped data and save it as CSV in the datasets directory 
 df = pd.DataFrame.from_dict(shelters_list)
