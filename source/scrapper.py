@@ -89,8 +89,17 @@ for link in all_links[:10]:
 
     # TODO: Extract Services information
 
-    
+    services_list = []
+    if soup.find(class_='service'):
+        #div_access.find(class_='col-12').decompose()
+ 
+        services = soup.find_all(class_='service')
 
+        for service in services:
+            services_list.append(service.text)    
+        #print(services_list)
+             
+               
     # TODO: Extract Location/How to get there information
     div_access = soup.find(class_='how-to-get-there')
     if div_access:
@@ -104,8 +113,9 @@ for link in all_links[:10]:
             div_access.find(class_='row coordinates').decompose()
             #print(lat_long)
         
+        #Get acces, zones and emplacement
         if div_access.find(class_='row'):
-            div_access.find(class_='col-12').decompose()
+            #div_access.find(class_='col-12').decompose()
             rows = div_access.find_all(class_='row')
             access = []
             zones = []
@@ -120,7 +130,7 @@ for link in all_links[:10]:
                 elif text.startswith('Emplacement'):
                     emplacement.append(text)
                     
-                else:
+                elif text.startswith('Access'):
                     access.append(text) 
                 
             #find_next('span').contents[0]
@@ -140,14 +150,19 @@ for link in all_links[:10]:
         for a in routes.find_all('a', href=True):
             routes_list.append(a.text)
              
-        print(routes_list)
+        #print(routes_list)
                    
     shelters_list.append({'Place type': place_type, 'Name': name, 'Place list': places_list,
                     'Capacity': capacity, 'Fee': fee, 'Altitude': altitude, 'Telephone': telephone, 
                     'Website': website, 'Email': email, 'Hiking association': hiking_association,
-                    'Guard name(s)': guard_names,
-                    'Description': description})
+                    'Guard name(s)': guard_names, 'Description': description, 'Services': services_list,
+                    'Latitude and Longitude': lat_long, 'Acces': access, 'Zones': zones,
+                    'Emplacement': emplacement, 'Nearby routes': routes_list,})
+    
+    access = []
+    zones = []
+    emplacement = []    
 
 # Create pandas dataframe with the whole scrapped data and save it as CSV in the datasets directory 
 df = pd.DataFrame.from_dict(shelters_list)
-#df.to_csv("../dataset/shelters.csv")
+df.to_csv("../dataset/shelters.csv")
