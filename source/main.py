@@ -3,18 +3,26 @@
 Created on Wed Nov 16, 2022
 @author: Sara Jose, Joan Peracaula
 """
-import scrapper
+import time
+import scraper
+
 
 def main():
+    start_time = time.time()
+    print("Scraping...")
+
+    # Get all links for shelter and campsites pages
+    all_links = scraper.get_urls()
     
-    # Get all links for shelter and campsites websites
-    headers, all_links = scrapper.get_urls()
+    # Navigate through the links and scrape each accommodation
+    accommodations_list = scraper.scrape_accommodations(all_links)
     
-    # Scrape de attributes
-    accommodations_list = scrapper.get_atributes(headers, all_links)
+    # Save the accomomodations list in a csv file
+    scraper.save_dataset(accommodations_list)
+
+    exec_time = time.time() - start_time
+    print("Execution time: " + str(round(exec_time/60, 2)) + " minutes")
     
-    #Save the attributes in a csv
-    scrapper.save_dataset(accommodations_list)
-    
+
 if __name__ == "__main__":
     main()

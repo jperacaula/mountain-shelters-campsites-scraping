@@ -3,21 +3,15 @@
 Created on Wed Nov 16, 2022
 @author: Sara Jose, Joan Peracaula
 """
-import os
-import sys
-import requests
-import random
-from bs4 import BeautifulSoup
-import pandas as pd
-from tabulate import tabulate
+
 
 def get_country_subregions(soup):
-
     # Extract country and subregions
     breadcrump = soup.find_all(class_='breadcrumb-item')
     places_list = [x.find('a').contents[0].strip() for x in breadcrump]  # Country, region, subregion (the last could be null)
     
     return places_list
+
 
 def get_placetype(soup):  
     # Extract place type and name
@@ -25,6 +19,7 @@ def get_placetype(soup):
     place_type, name = head.split(" - ", maxsplit=1)
     
     return place_type, name
+
 
 def get_capacity_fee_altitude(soup):
     # Extract capacity, fee and altitude if available
@@ -41,6 +36,7 @@ def get_capacity_fee_altitude(soup):
 
     return capacity, fee, altitude
 
+
 def get_description(soup):
     # Extract description, if available
     description = '?'
@@ -51,7 +47,6 @@ def get_description(soup):
 
 
 def get_contact(soup):
-    
     # Extract Contact information if available
     telephone, website, email, hiking_association, guard_names = '?', '?', '?', '?', '?'
     div_contact = soup.find(class_='contact')
@@ -82,6 +77,7 @@ def get_contact(soup):
 
     return telephone, website, email, hiking_association, guard_names
 
+
 def get_services(soup):
     # Extract list of services, if available
     services_list = []
@@ -91,6 +87,7 @@ def get_services(soup):
             services_list.append(service['title'])    
      
     return services_list
+
 
 def get_location(soup):
     # Extract Location/'How to get there' information
@@ -122,6 +119,7 @@ def get_location(soup):
             
     return lat_long, access, zones, emplacement 
 
+
 def get_routes(soup):   
     # Extract Nearby hiking routes names
     routes_list = []
@@ -130,4 +128,4 @@ def get_routes(soup):
         for a in routes.find_all('a', href=True):
             routes_list.append(a.text.strip())
         
-    return routes_list               
+    return routes_list
