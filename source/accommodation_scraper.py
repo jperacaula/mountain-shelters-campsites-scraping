@@ -13,7 +13,7 @@ def get_country_subregions(soup):
     return places_list
 
 
-def get_placetype(soup):  
+def get_placetype_name(soup):  
     # Extract place type and name
     head = soup.find(class_='name').contents[0].strip()
     place_type, name = head.split(" - ", maxsplit=1)

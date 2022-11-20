@@ -58,7 +58,7 @@ def scrape_accommodations(all_links):
         
         # Get all attributes
         places_list = accom_scrapper.get_country_subregions(soup)
-        place_type, name = accom_scrapper.get_placetype(soup)
+        place_type, name = accom_scrapper.get_placetype_name(soup)
         capacity, fee, altitude = accom_scrapper.get_capacity_fee_altitude(soup)
         description= accom_scrapper.get_description(soup)
         telephone, website, email, hiking_association, guard_names = accom_scrapper.get_contact(soup)
