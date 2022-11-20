@@ -1,7 +1,8 @@
 # Mountain shelters and campsites in Spain, Andorra and South of France
 
-Pràctiques de l'assignatura Tipologia i cicle de vida de les dades, Màster en Ciència de Dades de la UOC, 2022
-Membres: Sara Jose Roig i Joan Peracaula Prat
+*Pràctiques de l'assignatura Tipologia i cicle de vida de les dades, Màster en Ciència de Dades de la UOC, 2022*
+
+Membres: **Sara Jose Roig** i **Joan Peracaula Prat**
 
 ## Descripció
 
@@ -12,7 +13,7 @@ El lloc web d’on s’ha extret aquesta informació és https://www.walkaholic.
 ## Estructura del projecte 
 
  - `/dataset`: Directori amb el dataset resultant. 
-   - `shelters_and_campsites.csv`: Fitxer CSV que conté totes les dades scrapejades.
+   - `/dataset/shelters_and_campsites.csv`: Fitxer CSV que conté totes les dades scrapejades.
  - `/source`: Directori amb el codi utilitzat pel web scraping i creació del dataset. 
    - `/source/requirements.txt`: Fitxer amb les dependències necessàries per executar el codi. 
    - `/source/main.py`: Fitxer python punt d'entrada al programa. Inicia el web scraping i finalment guarda les dades. 
