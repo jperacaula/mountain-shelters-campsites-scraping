@@ -2,7 +2,7 @@
 
 Assignatura: M2.851 / Semestre: 2022-1 / Data: 22-11-2022
 
-URL del lloc web triat: https://www.walkaholic.me/
+URL del lloc web triat: https://www.walkaholic.me
 
 ## Autors
   * Sara Jose Roig - [sjoser@uoc.edu](sjoser@uoc.edu)
@@ -12,7 +12,7 @@ URL del lloc web triat: https://www.walkaholic.me/
 
 En aquesta pràctica hem escollit crear un dataset de llocs on dormir a la muntanya, siguin refugis (lliures o guardats) o bé espais d’acampada habilitats, en les regions d’Espanya, Andorra i sud de França. 
 
-El lloc web d’on s’ha extret aquesta informació és https://www.walkaholic.me/. Aquesta es tracta d’una plataforma encarada als amants del senderisme, amb rutes i allotjaments (refugis i llocs d’acampada) a Espanya, Andorra i França. 
+El lloc web d’on s’ha extret aquesta informació és https://www.walkaholic.me. Aquesta es tracta d’una plataforma encarada als amants del senderisme, amb rutes i allotjaments (refugis i llocs d’acampada) a Espanya, Andorra i França. 
 
 ## Estructura del projecte 
 
