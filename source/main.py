@@ -20,7 +20,7 @@ def save_dataset(accommodations_list):
     # Create pandas dataframe with the whole scraped data and save it as CSV in the datasets directory 
     df = pd.DataFrame.from_dict(accommodations_list)
     df.to_csv(dataset_path)
-    
+
 
 def main():
     start_time = time.time()
@@ -33,7 +33,7 @@ def main():
     accommodations_list = scraper.scrape_accommodations(all_links)
     
     # Save the accomomodations list in a csv file
-    scraper.save_dataset(accommodations_list)
+    save_dataset(accommodations_list)
 
     exec_time = time.time() - start_time
     print("Execution time: " + str(round(exec_time/60, 2)) + " minutes") 
