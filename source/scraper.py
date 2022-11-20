@@ -4,12 +4,9 @@ Created on Wed Nov 16, 2022
 @author: Sara Jose, Joan Peracaula
 """
 
-import os
-import sys
 import requests
 import random
 from bs4 import BeautifulSoup
-import pandas as pd
 import accommodation_scraper as accom_scrapper
 
 
@@ -34,6 +31,7 @@ HEADERS = {
     "Sec-GPC": "1",
     "TE": "trailers"
 }
+
 
 def get_urls():
     # Scrap shelters and campsites landings to obtain a full list of links
@@ -80,15 +78,3 @@ def scrape_accommodations(all_links):
     
     print("Scraping complete!")
     return accommodations_list
-
-
-def save_dataset(accommodations_list):
-    # Create path for the dataset
-    script_path = os.path.dirname(os.path.abspath(sys.argv[0]))
-    project_root_path = os.path.dirname(script_path)
-    dataset_path = os.path.join(project_root_path, "dataset/shelters_and_campsites.csv")
-    print("Saving dataset to: " + dataset_path) 
-    
-    # Create pandas dataframe with the whole scraped data and save it as CSV in the datasets directory 
-    df = pd.DataFrame.from_dict(accommodations_list)
-    df.to_csv(dataset_path)
