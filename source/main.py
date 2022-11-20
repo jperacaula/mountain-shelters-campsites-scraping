@@ -36,7 +36,8 @@ def main():
     save_dataset(accommodations_list)
 
     exec_time = time.time() - start_time
-    print("Execution time: " + str(round(exec_time/60, 2)) + " minutes") 
+    print("Execution time: " + str(round(exec_time/60, 2)) + " minutes")
+    # Note: last execution took 6.66 minutes
     
 
 if __name__ == "__main__":
