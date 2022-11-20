@@ -1,8 +1,12 @@
-# Mountain shelters and campsites in Spain, Andorra and South of France
+# Pràctica 1 - Tipologia i cicle de vida de les dades
 
-*Pràctiques de l'assignatura Tipologia i cicle de vida de les dades, Màster en Ciència de Dades de la UOC, 2022*
+Assignatura: M2.851 / Semestre: 2022-1 / Data: 22-11-2022
 
-Membres: **Sara Jose Roig** i **Joan Peracaula Prat**
+URL del lloc web triat: https://www.walkaholic.me/
+
+## Autors
+  * Sara Jose Roig - [sjoser@uoc.edu](sjoser@uoc.edu)
+  * Joan Peracaula Prat - [joanperacaula@uoc.edu](joanperacaula@uoc.edu)
 
 ## Descripció
 
@@ -12,17 +16,22 @@ El lloc web d’on s’ha extret aquesta informació és https://www.walkaholic.
 
 ## Estructura del projecte 
 
- - `/dataset`: Directori amb el dataset resultant. 
-   - `/dataset/shelters_and_campsites.csv`: Fitxer CSV que conté totes les dades scrapejades.
+ - `memoria.pdf`: Document memòria del projecte, amb les respostes de l'enunciat. 
+ - `LICENSE`: Llicència del projecte, The MIT License.   
  - `/source`: Directori amb el codi utilitzat pel web scraping i creació del dataset. 
    - `/source/requirements.txt`: Fitxer amb les dependències necessàries per executar el codi. 
    - `/source/main.py`: Fitxer python punt d'entrada al programa. Inicia el web scraping i finalment guarda les dades. 
    - `/source/scraper.py`: Fitxer python que s'encarrega, principalment, de fer les requests a la pàgina web. Conté dues funcions: una per extreure tots els enllaços als allotjaments i una altra que recorre els enllaços i extreu les característiques de cada allotjament. 
    - `/source/accommodation_scraper.py`: Fitxer python que mitjançant diferents funcions extreu tots els atributs d'un allotjament. 
-- `LICENSE`: Llicència del projecte, The MIT License.   
+ - `/dataset`: Directori amb el dataset resultant. 
+   - `/dataset/shelters_and_campsites.csv`: Fitxer CSV que conté totes les dades scrapejades.
  
 ## Dataset 
 
-El dataset obtingut s'ha publicat a la plataforma Zenodo: 
+El dataset obtingut s'ha publicat a la plataforma Zenodo amb DOI [10.5281/zenodo.7338336](https://doi.org/10.5281/zenodo.7338336).
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7338336.svg)](https://doi.org/10.5281/zenodo.7338336)
+
+## Video de presentació 
+
+Enllaç al vídeo de presentació de la pràctica: [https://drive.google.com/...](https://drive.google.com/...)
