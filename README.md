@@ -34,4 +34,4 @@ El dataset obtingut s'ha publicat a la plataforma Zenodo amb DOI [10.5281/zenodo
 
 ## Video de presentació 
 
-Enllaç al vídeo de presentació de la pràctica: [https://drive.google.com/...](https://drive.google.com/...)
+Enllaç al vídeo de presentació de la pràctica: [https://drive.google.com/file/d/1sKYpg2N_2lM94gUY2Nd5RZDVJVKTD2uR/view?usp=sharing](https://drive.google.com/file/d/1sKYpg2N_2lM94gUY2Nd5RZDVJVKTD2uR/view?usp=sharing)
